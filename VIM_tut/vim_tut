@@ -30,12 +30,12 @@ gg			 -  Goes to the top of the file
 G        -  Goes to the end of the file
 zz       -  view changes to the centre of the screen
 ZZ       -  write and save 
-:! ls    -  To perform shell commands from your vim (Here Eg. ls to see the files as you would see from your shell)
-:r <filename> - reads the file and prints it below the cursor 
-viw      - selects the word you are in (Easy to delete a word)
-vip      - selects the paragraph you are in (Easy to delete a paragraph). Also applies for codes with multiple lines without a gap
-vip+gJ   - puts everything in one line 
->>       - indentation
+:! ls         - To perform shell commands from your vim (Here Eg. ls to see the files as you would see from your shell)
+:r <filename> - reads the file and prints it below the cursor
+viw           - selects the word you are in (Easy to delete a word)
+vip           - selects the paragraph you are in (Easy to delete a paragraph). Also applies for codes with multiple lines without a gap
+vip+gJ        - puts everything in one line
+>>            - indentation
 
 
 SPLIT SCREEN METHODS
@@ -73,16 +73,13 @@ E    - Forward to the next end of the WORD
    #    - search the word under the cursor in that file. backward (bounded)
    g#   - search the word under the cursor in that file. backward (unbounded)
 
-set ignorecase - for case insensitivity
-set ignorecase! - switches it off
-set hlsearch / nohlsearch - Highlights the search we make and shows all the
-words in the script 
-set incsearch / noincsearch - Highlights the search in incremental manner while
-we type 
+set ignorecase              - for case insensitivity
+set ignorecase!             - switches it off
+set hlsearch / nohlsearch   - Highlights the search we make and shows all the words in the script
+set incsearch / noincsearch - Highlights the search in incremental manner while we type
 
 
-YANKING AND PASTING IN VIM:
-
+YANKING AND PASTING IN VIM: 
 yy        -   Yanks the current line
 y0				-		Yank from first word till the current cursor
 y$				-   Yank from current cursor to the last word
@@ -114,27 +111,26 @@ OTHER COMMANDS:
 
 gU - to upper case
 gu - to lower case
-<C-p> - Autocompletion
-<C-n> - Autocompletion
+<C-p> - Autocompletion in Insert mode
+<C-n> - Autocompletion in Insert mode [ vim-multiple-cursor in Normal mode]
 
 
 
 TABS:
-:tabnew - Open a new tab with given file
+:tabnew     - Open a new tab with given file
 gT or :tabp - Previous Tab
 gt or :tabn - Next Tab
-:tabm # - Move current Tab to position # 
-:tabfirst - Goes to the first tab
-:tablast -  Goes to the last tab
-:tabc - Close current Tab
-:tabo - Close all other tabs except the current one
-:tabonly - keeps the current tab and deletes the others
+:tabm #     - Move current Tab to position #
+:tabfirst   - Goes to the first tab
+:tablast    - Goes to the last tab
+:tabc       - Close current Tab
+:tabo       - Close all other tabs except the current one
+:tabonly    - keeps the current tab and deletes the others
 
 MACROS:
-q - to start recording
-Then perform the action
+q - to start recording then perform the action
 q - to stop recording
-@a to repeat the previously recorded action
+@a to repeat the previously recorded action 
 [n]@a to repeat n times
 
 
@@ -149,28 +145,23 @@ nnoremap <buffer> <leader><cmd> <cmd> works only where it was defined and not on
 :setlocal is a local function setting pertaining to that buffer/split
 
 
+PLUGIN MANAGEMENT: 
+Vim-plug 
 
-PLUGIN MANAGEMENT (Vundle or pathogen)
-
-
-
-VIMRC FILE:
-nnoremap - ddp (remaps the '-' to 'ddp' in the normal mode)
 
 NERDTREE-COMMENTER:
-
-<leader>cc |NERDComComment| - Comment out the current line or text selected in visual mode.
-<leader>cn |NERDComNestedComment|- Same as cc but forces nesting.
-<leader>c<space> |NERDComToggleComment|- Toggles the comment state of the selected line(s). If the topmost selected line is commented, all selected lines are uncommented and vice versa.
-<leader>cm |NERDComMinimalComment|- Comments the given lines using only one set of multipart delimiters.
-<leader>ci |NERDComInvertComment|- Toggles the comment state of the selected line(s) individually.
-<leader>cs |NERDComSexyComment|- Comments out the selected lines with a pretty block formatted layout.
-<leader>cy |NERDComYankComment|- Same as cc except that the commented line(s) are yanked first.
-<leader>c$ |NERDComEOLComment|- Comments the current line from the cursor to the end of line.
-<leader>cA |NERDComAppendComment|- Adds comment delimiters to the end of line and goes into insert mode between them.
-<leader>ca |NERDComAltDelim|- Switches to the alternative set of delimiters.
-<leader>cl <leader>cb |NERDComAlignedComment|- Same as |NERDComComment| except that the delimiters are aligned down the left side (<leader>cl) or both sides (<leader>cb).
-<leader>cu |NERDComUncommentLine|- Uncomments the selected line(s).
+<leader>cc |NERDComComment|                   - Comment out the current line or text selected in visual mode.
+<leader>cn |NERDComNestedComment|             - Same as cc but forces nesting.
+<leader>c<space> |NERDComToggleComment|       - Toggles the comment state of the selected line(s). If the topmost selected line is commented, all selected lines are uncommented and vice versa.
+<leader>cm |NERDComMinimalComment|            - Comments the given lines using only one set of multipart delimiters.
+<leader>ci |NERDComInvertComment|             - Toggles the comment state of the selected line(s) individually.
+<leader>cs |NERDComSexyComment|               - Comments out the selected lines with a pretty block formatted layout.
+<leader>cy |NERDComYankComment|               - Same as cc except that the commented line(s) are yanked first.
+<leader>c$ |NERDComEOLComment|                - Comments the current line from the cursor to the end of line.
+<leader>cA |NERDComAppendComment|             - Adds comment delimiters to the end of line and goes into insert mode between them.
+<leader>ca |NERDComAltDelim|                  - Switches to the alternative set of delimiters.
+<leader>cl <leader>cb |NERDComAlignedComment| - Same as |NERDComComment| except that the delimiters are aligned down the left side (<leader>cl) or both sides (<leader>cb).
+<leader>cu |NERDComUncommentLine|             - Uncomments the selected line(s).
 
 
 OTHER COMMANDS:
@@ -266,7 +257,8 @@ Vim will display a nested list that looks something like [['a', 100], ['b', 200]
 :echo split(globpath('.', '*.txt'), '\n') - Vim displays a list of all .txt files in the current directory
 :echo split(globpath('.', '**'), '\n') - Vim will list all files and directories under the current directory.
 
-
+TABULAR:
+:Tabular /<regex> (Works also in visual blocks)
 
 TO CHECK DEFAULT ELEMENTS IN VIM:
 

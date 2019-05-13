@@ -43,6 +43,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'tpope/vim-fugitive'
 	Plug 'tomasr/molokai'
 	Plug 'ciaranm/inkpot'
+	Plug 'godlygeek/tabular'
 call plug#end()
 
 
