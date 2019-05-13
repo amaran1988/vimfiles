@@ -1,0 +1,290 @@
+
+MOVING AROUND IN VIM:
+
+i        -      Insert mode
+I        -      Insert at first non-blank character
+s        -      Deletes the character at the cursor and enters insert mode (useful for replacing variables)
+S        -      Deletes the entire line + insert mode at beginning of line (useful for replacing lines of code)
+cc       -      Deletes the entire line + insert mode at beginning of line
+x        -      Deletes character at the cursor
+C        -      Deletes the line from cursor to the end (very useful when using latex)
+ci(      -      Deletes the stuffs inside the parenthesis ()+insert mode
+vi(      -      place the cursor on the "(" and type this. This will select all the contents inside the (). 
+d/<word> -      Deletes until that word 
+O        -      Inserts in the previous line
+o        -      Inserts in the next line
+j        -      cursor goes down
+2j       -      cursor goes down 2 times (same as for other keys - "h","k" and "l")
+$		     -      Moves your cursor to the last character of the line
+0        -      Moves your cursor to the first character of the line
+[n]dd    -      Delete the line nth time
+u				 -      Undo
+[n].		 -      Repeats the previous action n times.
+
+<C-s>    -  Freezes your frame (can't perform any action)
+<C-q>    -  Resumes back the vim terminal. s
+]]       -  Next section
+[[       -  Previous section
+%        -  Matching braces
+gg			 -  Goes to the top of the file
+G        -  Goes to the end of the file
+zz       -  view changes to the centre of the screen
+ZZ       -  write and save 
+:! ls    -  To perform shell commands from your vim (Here Eg. ls to see the files as you would see from your shell)
+:r <filename> - reads the file and prints it below the cursor 
+viw      - selects the word you are in (Easy to delete a word)
+vip      - selects the paragraph you are in (Easy to delete a paragraph). Also applies for codes with multiple lines without a gap
+vip+gJ   - puts everything in one line 
+>>       - indentation
+
+
+SPLIT SCREEN METHODS
+:sp           			 - Split screen vertically downwards (the same file)
+Ctrl+w+v      			 - Splits screen horizontally
+Ctrl+w+w      			 - To jump from one screen to another
+Ctrl+w+q      			 - Quit the screen you are in
+Ctrl+w+<hjkl> 			 - To navigate and jump between screens
+Ctrl+w+<+-=>  			 - To increase or decrease screen sizes
+Go to a screen + :s  - To split the screen vertically 
+:vsp (or) :vsplit    - To split the screen horizontally
+
+You can yank lines and paste it on other screens
+
+
+SEARCHING IN VIM:
+
+w    - forward to the beginning of the word
+W    - forward to the beginning of the WORD(i.e word with whitespaces)
+b    - backward to the next beginning of the word
+B    - backward to the next beginning of the WORD
+e    - Forward to the next end of the word
+E    - Forward to the next end of the WORD
+[N]G - Go to line N
+
+[n]fa   - Finds the first character "a" after the cursor until nth time Inclusive
+[n]Fa   - Finds the first character "a" before the cursor until nth time Inclusive
+[n]ta   - Finds the first character "a" after the cursor until nth time Exclusive
+[n]Ta   - Finds the first character "a" before the cursor until nth time Exclusive
+
+/<word> - search for a specific word in that file + {n} to move to next word or {N} to move to previous word
+?<word> - search for a specific word in that file + {n} to move to previous word or {N} to move to next word
+   *    - search the word under the cursor in that file. default: case insensitive. set "ignorecase" for case insensitivity (bounded)
+	 g*   - search the word under the cursor in that file. default: case insensitive. set "ignorecase" for case insensitivity (unbounded)
+   #    - search the word under the cursor in that file. backward (bounded)
+   g#   - search the word under the cursor in that file. backward (unbounded)
+
+set ignorecase - for case insensitivity
+set ignorecase! - switches it off
+set hlsearch / nohlsearch - Highlights the search we make and shows all the
+words in the script 
+set incsearch / noincsearch - Highlights the search in incremental manner while
+we type 
+
+
+YANKING AND PASTING IN VIM:
+
+yy        -   Yanks the current line
+y0				-		Yank from first word till the current cursor
+y$				-   Yank from current cursor to the last word
+p         -   Pastes the line
+P         -   Pastes the line in the next 
+yw        -   Yanks the word from the cursor to the end of the word
+2yw       -   Yanks two words 
+ye        -   This is same as yw
+v         -   Visual motion capture (mostly used for yanking)
+ctrl+v    -   Visual block selection (very very powerful)
+u         -   Undo  
+
+
+
+QUITTING IN VIM:
+
+:wq            -    saves and quits the file
+:q             -    Quits the file
+:q!            -    Quits the file without saving the changes 
+:x             -    Quits the file and saves if necessary
+ZZ             -    Saves and quits the file. 
+:E <DIR>       -    EDIT OR OPEN THE FILE FROM THE SYSTEM
+:SAVEAS <FILE> -    SAVE AS ANOTHER FILE IN THE SYSTEM
+:10,25 w temp  -    Saves lines 10-25 in file named "temp"
+
+
+
+OTHER COMMANDS:
+
+gU - to upper case
+gu - to lower case
+<C-p> - Autocompletion
+<C-n> - Autocompletion
+
+
+
+TABS:
+:tabnew - Open a new tab with given file
+gT or :tabp - Previous Tab
+gt or :tabn - Next Tab
+:tabm # - Move current Tab to position # 
+:tabfirst - Goes to the first tab
+:tablast -  Goes to the last tab
+:tabc - Close current Tab
+:tabo - Close all other tabs except the current one
+:tabonly - keeps the current tab and deletes the others
+
+MACROS:
+q - to start recording
+Then perform the action
+q - to stop recording
+@a to repeat the previously recorded action
+[n]@a to repeat n times
+
+
+MAPPING
+:map - x  - maps the function of x to - in VIM
+:map - dd - maps the function of dd to - in VIM
+:map - ddp - to move line in the downward direction
+:map = ddkP - to move line in the upward direction
+nnoremap means non-recursive mapping
+nnoremap <buffer> <leader><cmd> <cmd> works only where it was defined and not on other splits. Also advised to use <local leader> instead of <leader> when using buffers.
+:set is a global function setting
+:setlocal is a local function setting pertaining to that buffer/split
+
+
+
+PLUGIN MANAGEMENT (Vundle or pathogen)
+
+
+
+VIMRC FILE:
+nnoremap - ddp (remaps the '-' to 'ddp' in the normal mode)
+
+NERDTREE-COMMENTER:
+
+<leader>cc |NERDComComment| - Comment out the current line or text selected in visual mode.
+<leader>cn |NERDComNestedComment|- Same as cc but forces nesting.
+<leader>c<space> |NERDComToggleComment|- Toggles the comment state of the selected line(s). If the topmost selected line is commented, all selected lines are uncommented and vice versa.
+<leader>cm |NERDComMinimalComment|- Comments the given lines using only one set of multipart delimiters.
+<leader>ci |NERDComInvertComment|- Toggles the comment state of the selected line(s) individually.
+<leader>cs |NERDComSexyComment|- Comments out the selected lines with a pretty block formatted layout.
+<leader>cy |NERDComYankComment|- Same as cc except that the commented line(s) are yanked first.
+<leader>c$ |NERDComEOLComment|- Comments the current line from the cursor to the end of line.
+<leader>cA |NERDComAppendComment|- Adds comment delimiters to the end of line and goes into insert mode between them.
+<leader>ca |NERDComAltDelim|- Switches to the alternative set of delimiters.
+<leader>cl <leader>cb |NERDComAlignedComment|- Same as |NERDComComment| except that the delimiters are aligned down the left side (<leader>cl) or both sides (<leader>cb).
+<leader>cu |NERDComUncommentLine|- Uncomments the selected line(s).
+
+
+OTHER COMMANDS:
+echo expand("%") - To get the current filename
+run "ctags -R ." in that folder. Open an existing script and ... 
+<C-]> to navigate to the source of the function, class or subclass
+<g-]> to see how many times that class or function been used in the file
+<CTRL+x+f> - to navigate files during insert mode while writing the script
+<ctrl+x+]> - To autocomplete your class or function while writing your script
+<ctrl+n> - autocompletion in the script
+:edit . - goes to netrw for file navigation
+:help ^n - shows ctrl+n function in normal mode
+:help i_^n - shows ctrl+n function in insert mode
+:help c_^n - shows ctrl+n function in the command mode
+:iabbrev adn and - This in insert mode when you type "adn" VIM automatically changes it to "and" after the space. Very useful for automating typo corrections.
+:iabbrev @@ amardeep.application@gmail.com - iabbrev can also be used to confine large text into smaller ones like the one shown here. Very useful when using latex in VIM
+Folding in VIM is done with - "<captions> ------ {{{ <write your stuff> <next line> " }}} ..... 
+:setlocal foldmethod=marker to set folding for that particular file .....
+and then use za to fold or unfold your lines of code. 
+:let @a = "hello!" - put your cursor somewhere in the script and type "ap. This
+will paste the contents of that register 
+:echo @a
+'abc' ==# 'ABC' returns 0 cuz this is case-sensitive no matter what the user has set
+'abc' ==? 'ABC' returns 1 cuz this is case-insensitive no matter what the user has set
+'abc' == 'ABC' returns 1 if the user has set 'ignorecase' 
+:echom len("foo")
+echo split("one two three") - Split based on whitespace
+:echo split("one,two,three", ",") - Split based on comma
+:echo join(["foo", "bar"], "...")
+:echo join(split("foo bar"), ";")
+:echom tolower("Foo")
+:echom toupper("Foo")
+:execute "rightbelow vsplit " . bufname("#") - Very important since execute can
+enable the user to run tricky and complex commands in a single line
+:normal! G - This puts the cursor on the last line like normal mode G does. The
+! sign is to override any mappings already assigned, if any, for G. So always
+use normal! and avoid 'normal'. 
+:execute "normal! /foo<cr>" - This allows the normal command to include special
+characters by using the execute command
+:execute "normal! gg/for .\\+ in .\\+:\<cr>" - using regular expressions in
+execute command 
+/:execute "normal! gg/for .\\+ in .\\+:\<cr>" - Works
+:execute 'normal! gg/for .\+ in .\+:\<cr>' - doesnt work due to /<cr> in single
+quotes
+:execute "normal! gg" . '/for .\+ in .\+:' . "\<cr>" - This works since we have
+concatenated the literal string with double quoted <cr>
+:execute "normal! gg" . '/\vfor .+ in .+:' . "\<cr>" - This works as we are
+using 'very magic' which is \v
+
+print .\+ - Finds the print word along with the statement
+
+:echo @/ - Vim will echo the search pattern you just used
+:echo @" - Vim will echo the word you just yanked
+
+
+Some commands to illustrate the list operation in VIM
+:echo ['foo', [3, 'bar']]
+:echo [0, [1, 2]][1]
+:echo ['a', 'b', 'c', 'd', 'e'][-2:-1]
+:echo ['a', 'b', 'c', 'd', 'e'][:1]
+:echo ['a', 'b', 'c', 'd', 'e'][3:]
+:echo ['a', 'b'] + ['c']
+:let foo = ['a']
+:call add(foo, 'b')
+:echo foo
+:echo get(foo, 0, 'default')
+:echo get(foo, 100, 'default')
+:echo index(foo, 'b')
+:echo index(foo, 'nope')
+:call reverse(foo)
+:let test = remove(foo, 'a')
+:unlet foo.b
+:echo foo
+:echo test
+Vim displays {} and 100. The remove function will remove the entry with the given key from the given dictionary and return the removed value.
+
+:echom get({'a': 100}, 'a', 'default')
+:echom get({'a': 100}, 'b', 'default')
+Vim displays 100 and default,
+
+:echom has_key({'a': 100}, 'a')
+:echom has_key({'a': 100}, 'b')
+Vim displays 1 and 0
+
+:echo items({'a': 100, 'b': 200})
+Vim will display a nested list that looks something like [['a', 100], ['b', 200]]
+
+:echom expand('%') - returns the filename along with immediate path
+:echom expand('%:p') - returns the filename's absolute path
+:echom fnamemodify('foo.txt', ':p') - returns the absolute path even when the file doesnt exist
+:echo globpath('.', '*') - Vim will display all of the files and directories in the current directory
+:echo split(globpath('.', '*'), '\n') - Vim displays a Vimscript list containing each path.
+:echo split(globpath('.', '*.txt'), '\n') - Vim displays a list of all .txt files in the current directory
+:echo split(globpath('.', '**'), '\n') - Vim will list all files and directories under the current directory.
+
+
+
+TO CHECK DEFAULT ELEMENTS IN VIM:
+
+cd /usr/share/vim/vim74
+
+
+FOR MORE INFO:
+http://github.com/shawncplus/dotfiles
+
+
+
+
+
+
+
+
+
+
+
+
+
