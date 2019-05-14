@@ -16,7 +16,7 @@ set wrap
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-set pastetoggle=<c-p>
+set pastetoggle=<c-p> "This is to avoid tab function when pasting from other docs
 
 
 set hlsearch " Highlights all the word that we search for in that script
@@ -78,7 +78,7 @@ endfunction
 
 
 
-
+" Not required since we are using Lightline.vim
 " STATUS LINE 
 "set laststatus=2            " set the bottom status bar
 "

@@ -101,8 +101,8 @@ QUITTING IN VIM:
 :q!            -    Quits the file without saving the changes 
 :x             -    Quits the file and saves if necessary
 ZZ             -    Saves and quits the file. 
-:E <DIR>       -    EDIT OR OPEN THE FILE FROM THE SYSTEM
-:SAVEAS <FILE> -    SAVE AS ANOTHER FILE IN THE SYSTEM
+:e <dir>       -    edit or open the file from the system
+:saveas <file> -    save as another file in the system
 :10,25 w temp  -    Saves lines 10-25 in file named "temp"
 
 
@@ -162,6 +162,27 @@ NERDTREE-COMMENTER:
 <leader>ca |NERDComAltDelim|                  - Switches to the alternative set of delimiters.
 <leader>cl <leader>cb |NERDComAlignedComment| - Same as |NERDComComment| except that the delimiters are aligned down the left side (<leader>cl) or both sides (<leader>cb).
 <leader>cu |NERDComUncommentLine|             - Uncomments the selected line(s).
+
+
+REGULAR EXPRESSIONS:
+:%s/|.*|//g - will delete all the contents between the bars and the bars as well. This is global 
+:%s/<*>//g - Deletes the < and > bracket alone and leaves the content as is. This is global
+:%s/^\[.*\]\$\s\+// 
+%s/<[^>]*>//g
+
+
+FUGITIVE VIM:
+:Gwrite (or) Git add % ~= git add <filename>
+:Gremove (or) :Git rm % ~= git rm <filename>
+:Gread (or) :Git checkout % - This is done to revert back to the previous commit just in case if you had messed up your file.  
+:Gcommit ~= git commit -m "The message"
+:Gblame - Shows all the changes alongside the script. Very sleek
+:Gmove target_path (or) :Git mv % target_path
+:Git checkout -b experiment - checksout to another branch named experiment
+:Git checkout branch -D experiment - To delete the branch experiment 
+:e ~/.gitconfig  - to put alias in that file and fugitive reads it as well
+
+
 
 
 OTHER COMMANDS:
@@ -257,16 +278,16 @@ Vim will display a nested list that looks something like [['a', 100], ['b', 200]
 :echo split(globpath('.', '*.txt'), '\n') - Vim displays a list of all .txt files in the current directory
 :echo split(globpath('.', '**'), '\n') - Vim will list all files and directories under the current directory.
 
+
+
 TABULAR:
 :Tabular /<regex> (Works also in visual blocks)
 
-TO CHECK DEFAULT ELEMENTS IN VIM:
 
+
+TO CHECK DEFAULT ELEMENTS IN VIM:
 cd /usr/share/vim/vim74
 
-
-FOR MORE INFO:
-http://github.com/shawncplus/dotfiles
 
 
 

@@ -21,7 +21,7 @@ nnoremap <leader>N :setlocal number!<cr>
 nnoremap <leader>c ddO
 
 " Deletes the current line and stays in normal mode
-nnoremap <leader>d dd
+"nnoremap <leader>d dd
 
 " Edit vimrc mappings, settings and abbreviations file while on a VIM script
 nnoremap <leader>va :leftabove vsplit $HOME/.vim/vimrc1/abbreviations.vim<cr>
@@ -59,7 +59,7 @@ augroup DeleteWhiteSpace
 augroup END
 
 " Removing trailing whitespaces.
-nnoremap <leader>w :call <SID>StripTrailingWhiteSpaces()<cr>
+"nnoremap <leader>w :call <SID>StripTrailingWhiteSpaces()<cr>
 
 function! <SID>StripTrailingWhiteSpaces()
 " Save last search, and cursor position
@@ -81,8 +81,6 @@ nnoremap <leader>qq :g/^$/d<cr>
 nnoremap <leader>ts :set list<cr><bar>:set expandtab<cr><bar>:retab!<cr>
 nnoremap <leader>st :set list<cr><bar>:set noexpandtab<cr><bar>:retab!<cr>
 
-"nnoremap <leader>g :execute "grep! -R " . shellescape(expand("<cword>")) . " ."<cr>:copen<cr>
-"
 
 "===================================================
 "              INSERT MODE MAPPINGS
@@ -95,9 +93,9 @@ inoremap <right> <Nop>
 inoremap <up> <Nop>
 
 
-" To change lower to uppercase and vice-versa
-inoremap <c-u> <esc>viwU<esc>i
-inoremap <c-l> <esc>viwui<esc>i
+" to change lower to uppercase and vice-versa
+"inoremap <c-u> <esc>viwu<esc>i
+"inoremap <c-l> <esc>viwui<esc>i
 
 
 
@@ -141,5 +139,9 @@ endfunction
 " Deletes the contents inside () + insert mode Eg. Place the cursor after )
 " and type cil(
 :onoremap il( :<c-u>normal! F)vi(<cr>
+
+
+
+
 
 

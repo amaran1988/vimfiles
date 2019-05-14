@@ -20,7 +20,6 @@
 augroup filetype_vim
     autocmd!
 		    autocmd FileType vim setlocal foldmethod=marker
-				autocmd FileType vim  :nnoremap <buffer> <localleader>m I"<esc>
 augroup END
 " }}}
 "
@@ -29,8 +28,6 @@ augroup END
 augroup c_sc
  autocmd!
  autocmd Filetype c :iabbrev cmain <cr>#include<stdio.h><cr>#include<stdlib.h><cr><cr>int main(){<cr><cr>printf("Hello World!")<cr><cr>}
- autocmd FileType c :nnoremap <buffer> <localleader>m I//<esc>
- autocmd FileType c :vnoremap <buffer> <localleader>m I//<esc>
  autocmd FileType c :iabbrev <buffer> iff if ()<left>
  autocmd FileType c :iabbrev <buffer> ef else if ()<left>
  autocmd FileType c :iabbrev <buffer> whilee while ()<left>
@@ -45,8 +42,6 @@ augroup END
 "Abbreviations for python --------------- {{{
 augroup python_sc
 	autocmd!
-	autocmd FileType python nnoremap <buffer> <localleader>m I#<esc>
-	autocmd FileType python vnoremap <buffer> <localleader>m I#<esc>
 	autocmd Filetype python :iabbrev <buffer> iff if:<left>
 augroup END
 " }}} 
