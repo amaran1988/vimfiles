@@ -63,4 +63,7 @@ nnoremap <silent> <M-j> :MultipleCursorsFind <C-R>/<CR>
 vnoremap <silent> <M-j> :MultipleCursorsFind <C-R>/<CR>
 
 
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ }
 
